@@ -24,4 +24,8 @@ public class Transaction {
     /* amount of transaction*/
     private BigDecimal amount;
 
+    @Override
+    public String toString() {
+        return transactionType.name() + " | " + amount;
+    }
 }

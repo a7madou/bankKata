@@ -48,7 +48,6 @@ public class Account {
     }
 
     public void showHistory() {
-        //TODO
-        throw new RuntimeException("la méthode showHistory n'est pas implémentée");
+        transactionList.forEach(System.out::println);
     }
 }

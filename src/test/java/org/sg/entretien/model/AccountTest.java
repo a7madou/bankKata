@@ -76,12 +76,13 @@ public class AccountTest {
     public void showHistoryTest() throws NegativeAmountException, TransactionException {
         try {
             Account account = ModelUtil.createAccount();
-            account.showHistory();
             account.deposit(new BigDecimal(100));
             account.deposit(new BigDecimal(200));
             account.withdrawal(new BigDecimal(50));
+            account.showHistory();
             Assert.assertEquals(350, account.getBalance().longValue());
             Assert.assertEquals(3, account.getTransactionList().size());
+            Assert.assertEquals("DEPOSIT | 100", account.getTransactionList().get(0).toString());
         } catch (RuntimeException e) {
             Assert.assertEquals("la méthode showHistory n'est pas implémentée", e.getMessage());
         }
